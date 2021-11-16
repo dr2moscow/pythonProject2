@@ -7,7 +7,7 @@ import chardet
 
 # решение через функцую
 def ping(target: str):
-    args = ['ping', target]
+    args = ['ping', '-n', '5', target]
     subp_ping = subprocess.Popen(args, stdout=subprocess.PIPE)
     for el in subp_ping.stdout:
         codec = chardet.detect(el).get('encoding')
