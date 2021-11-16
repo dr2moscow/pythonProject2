@@ -1,5 +1,6 @@
 # Создать текстовый файл test_file.txt, заполнить его тремя строками: «сетевое программирование», «сокет», «декоратор».
 # Проверить кодировку файла по умолчанию. Принудительно открыть файл в формате Unicode и вывести его содержимое.
+import locale
 
 words = ['сетевое программирование', 'сокет', 'декоратор']
 
@@ -14,4 +15,8 @@ with open('test.txt', 'r') as f:
 
 # Читаем из файла принудииельтно в кодровке Unicode
 with open('test.txt', 'r', encoding='utf-8', errors='replace') as f:
+    print(f'В кодировка Unicode: {f.read()}')
+
+print (f'\nВариант 2')
+with open('test.txt', 'r', encoding=locale.getpreferredencoding()) as f:
     print(f'В кодировка Unicode: {f.read()}')
