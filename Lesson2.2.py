@@ -29,7 +29,7 @@ def write_order_to_json(item, quantity, price, buyer, date):
             'buyer': buyer,
             'date': date}
         orders_list.append(order_info)
-        json.dump(data, file_in, indent=4)  # величина отступа задана через indent
+        json.dump(data, file_in, indent=4)  # величина отступа задана через indent=4
 
 
 # checking the function
