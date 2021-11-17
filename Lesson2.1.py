@@ -66,6 +66,11 @@ def get_data():
 
 
 def write_to_csv(out_file):
+    """
+    В этой функции реализовать получение данных через вызов функции get_data(), а также сохранение подготовленных
+    данных в соответствующий CSV-файл
+    """
+
     main_data = get_data()
     with open(out_file, 'w', encoding='utf-8') as file:
         writer = csv.writer(file)
