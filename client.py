@@ -14,7 +14,6 @@ class Client:
         self.port = server_port
         try:
             # Инициализация сокета и обмен
-            self.status = "login"
             self.transport = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.transport.connect((self.address, self.port))
         except BaseException:
