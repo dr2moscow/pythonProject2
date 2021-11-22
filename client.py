@@ -1,4 +1,13 @@
-"""Программа-клиент"""
+"""
+Client
+
+Функции клиента: сформировать presence-сообщение; отправить сообщение серверу; получить ответ сервера;
+разобрать сообщение сервера;
+
+параметры командной строки скрипта client.py <addr> [<port>]: addr — ip-адрес сервера; port — tcp-порт на сервере,
+по умолчанию 7777.
+"""
+
 import sys
 import json
 import socket
@@ -70,16 +79,32 @@ def main():
     """
     Загружаем параметы коммандной строки
     """
+
+    # Загружаем на какой порт сервера слать сообщение
     try:
-        server_address = sys.argv[1]
-        server_port = int(sys.argv[2])
+        if '-p' in sys.argv:
+            server_port = int(sys.argv[sys.argv.index('-p') + 1])
+        else:
+            server_port = DEFAULT_PORT
         if server_port < 1024 or server_port > 65535:
             raise ValueError
     except IndexError:
-        server_address = DEFAULT_IP_ADDRESS
-        server_port = DEFAULT_PORT
+        print('После параметра -\'p\' необходимо указать номер порта.')
+        sys.exit(1)
     except ValueError:
-        print('В качестве порта может быть указано только число в диапазоне от 1024 до 65535.')
+        print(
+            'В качастве порта может быть указано только число в диапазоне от 1024 до 65535.')
+        sys.exit(1)
+
+    # Загружаем на какой адрес сервера слать сообщение
+    try:
+        if '-a' in sys.argv:
+            server_address = sys.argv[sys.argv.index('-a') + 1]
+        else:
+            server_address = DEFAULT_IP_ADDRESS
+    except IndexError:
+        print(
+            'После параметра \'a\'- необходимо указать адрес, который будет слушать сервер.')
         sys.exit(1)
 
     # Создадем клиент
