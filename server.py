@@ -36,8 +36,6 @@ class Server:
         self.transport.listen(MAX_CONNECTIONS)
         while True:
             client, client_address = self.transport.accept()
-            print(client)
-            print(client_address)
             try:
                 message_from_client = get_message(client)
                 print(message_from_client)
