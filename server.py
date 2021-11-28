@@ -62,7 +62,7 @@ class Server:
                 and USER in message and message[USER][ACCOUNT_NAME] == 'Guest':
             return {RESPONSE: 200}
         return {
-            RESPONDEFAULT_IP_ADDRESSSE: 400,
+            RESPONSE: 400,
             ERROR: 'Bad Request'
         }
 

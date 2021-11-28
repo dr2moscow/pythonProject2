@@ -27,22 +27,22 @@ class TestServer(unittest.TestCase):
 
     def test_no_action(self):
         """Ошибка если нет действия"""
-        self.assertEqual(server.Server.process_client_message(
+        self.assertEqual(class_server(
             {TIME: '1.1', USER: {ACCOUNT_NAME: 'Guest'}}), self.err_dict)
 
     def test_wrong_action(self):
         """Ошибка если неизвестное действие"""
-        self.assertEqual(server.Server.process_client_message(
+        self.assertEqual(class_server(
             {ACTION: 'Wrong', TIME: '1.1', USER: {ACCOUNT_NAME: 'Guest'}}), self.err_dict)
 
     def test_no_time(self):
         """Ошибка, если  запрос не содержит штампа времени"""
-        self.assertEqual(server.Server.process_client_message(
+        self.assertEqual(class_server(
             {ACTION: PRESENCE, USER: {ACCOUNT_NAME: 'Guest'}}), self.err_dict)
 
     def test_no_user(self):
         """Ошибка - нет пользователя"""
-        self.assertEqual(server.Server.process_client_message(
+        self.assertEqual(class_server(
             {ACTION: PRESENCE, TIME: '1.1'}), self.err_dict)
 
     def test_unknown_user(self):
