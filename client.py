@@ -10,11 +10,11 @@ from common.utils import get_message, send_message
 
 
 def create_presence(account_name='Guest'):
-    '''
+    """
     Функция генерирует запрос о присутствии клиента
     :param account_name:
     :return:
-    '''
+    """
     out = {
         ACTION: PRESENCE,
         TIME: time.time(),
@@ -26,11 +26,11 @@ def create_presence(account_name='Guest'):
 
 
 def process_ans(message):
-    '''
+    """
     Функция разбирает ответ сервера
     :param message:
     :return:
-    '''
+    """
     if RESPONSE in message:
         if message[RESPONSE] == 200:
             return '200 : OK'
@@ -39,10 +39,10 @@ def process_ans(message):
 
 
 def main():
-    '''
+    """
     Загружаем параметы коммандной строки
     :return:
-    '''
+    """
     try:
         server_address = sys.argv[1]
         server_port = int(sys.argv[2])
