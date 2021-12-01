@@ -14,14 +14,17 @@ import socket
 import time
 import argparse
 import logging
+import decorators
 import logs.config_client_log
 from errors import ReqFieldMissingError
 from common.variables import ACTION, PRESENCE, TIME, USER, ACCOUNT_NAME, \
-    RESPONSE, DEFAULT_PORT, ERROR, DEFAULT_IP_ADDRESS
+    RESPONSE, DEFAULT_PORT, ERROR, DEFAULT_IP_ADDRESS, DEBUG_MESSAGE_FORMAT
 from common.utils import get_message, send_message
 
 # Инициализация клогера
-logger = logging.getLogger('client')
+log = logging.getLogger('client')
+# Декоратор
+logger = decorators.Log(log)
 
 
 class Client:
@@ -35,24 +38,23 @@ class Client:
             message_to_server = Client.status_presence()
             send_message(self.transport, message_to_server)
             answer = Client.process_answer(get_message(self.transport))
-            logger.info(f'Принят ответ от сервера {answer}')
+            log.info(f'Принят ответ от сервера {answer}')
             print(answer)
         except json.JSONDecodeError:
-            logger.error(f'Не удалось декодировать полученную Json строку.')
+            log.error(f'Не удалось декодировать полученную Json строку.')
         except ConnectionRefusedError:
-            logger.critical(f'Не удалось подключиться к серверу {server_address}:{server_port}, '
-                            f'конечный компьютер отверг запрос на подключение.')
+            log.critical(f'Не удалось подключиться к серверу {server_address}:{server_port}, '
+                         f'конечный компьютер отверг запрос на подключение.')
         except ReqFieldMissingError as missing_error:
-            logger.error(f'В ответе сервера отсутствует необходимое поле '
-                         f'{missing_error.missing_field}')
+            log.error(f'В ответе сервера отсутствует необходимое поле {missing_error.missing_field}')
         sys.exit(1)
 
-    def status_presence(account_name='Guest'):
+    @logger
+    def status_presence(self='Guest'):
         """
         Функция генерирует запрос о присутствии клиента
-        :param account_name:
-        :return:
         """
+        account_name = self
         out = {
             ACTION: PRESENCE,
             TIME: time.time(),
@@ -60,16 +62,16 @@ class Client:
                 ACCOUNT_NAME: account_name
             }
         }
-        logger.debug(f'Сформировано {PRESENCE} сообщение для пользователя {account_name}')
+        log.debug(f'Сформировано {PRESENCE} сообщение для пользователя {account_name}')
         return out
 
-    def process_answer(message):
+    @logger
+    def process_answer(self):
         """
         Функция разбирает ответ сервера
-        :param message:
-        :return:
         """
-        logger.debug(f'Разбор сообщения от сервера: {message}')
+        message = self
+        log.debug(f'Разбор сообщения от сервера: {message}')
         if RESPONSE in message:
             if message[RESPONSE] == 200:
                 return '200 : OK'
@@ -88,6 +90,7 @@ class Client:
         return parser
 
 
+@logger
 def main():
     """
     Загружаем параметы коммандной строки
@@ -99,13 +102,12 @@ def main():
 
     # проверим подходящий номер порта
     if not 1023 < server_port < 65536:
-        logger.critical(
+        log.critical(
             f'Попытка запуска клиента с неподходящим номером порта: {server_port}.'
             f' Допустимы адреса с 1024 до 65535. Клиент завершается.')
         sys.exit(1)
 
-    logger.info(f'Запущен клиент с парамертами: адрес сервера: '
-                f'{server_address} , порт: {server_port}')
+    log.info(f'Запущен клиент с парамертами: адрес сервера: {server_address} , порт: {server_port}')
 
     # Создадем клиент
     client_connect = Client(server_address, server_port)

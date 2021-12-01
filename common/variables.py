@@ -25,3 +25,5 @@ ACCOUNT_NAME = 'account_name'
 PRESENCE = 'presence'
 RESPONSE = 'response'
 ERROR = 'error'
+DEBUG_MESSAGE_FORMAT = 'Вызвана функция {func.__name__} c параметрами {args}, {kwargs}. ' \
+                       'Вызов из модуля {func.__module__}. Вызов из функции {inspect.stack()[1][3]}'
