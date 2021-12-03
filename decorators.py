@@ -1,38 +1,31 @@
-"""
-1. Продолжая задачу логирования, реализовать декоратор @log, фиксирующий обращение к декорируемой функции.
-Он сохраняет ее имя и аргументы.
-2. В декораторе @log реализовать фиксацию функции, из которой была вызвана декорированная. Если имеется такой код:
-@log
-def func_z():
- pass
-def main():
- func_z()
-...в логе должна быть отражена информация:
-"<дата-время> Функция func_z() вызвана из функции main"
-"""
+"""Декораторы"""
 
-import time
+import sys
+import logging
+import logs.config_server_log
+import logs.config_client_log
 import traceback
-from functools import wraps
+import inspect
+
+# метод определения модуля, источника запуска.
+# Метод find () возвращает индекс первого вхождения искомой подстроки,
+# если он найден в данной строке.
+# Если его не найдено, - возвращает -1.
+if sys.argv[0].find('client') == -1:
+    # если не клиент то сервер!
+    LOGGER = logging.getLogger('server')
+else:
+    # ну, раз не сервер, то клиент
+    LOGGER = logging.getLogger('client')
 
 
-class Log:
-    def __init__(self, logger):
-        self.logger = logger
-
-    def __call__(self, func):
-        @wraps(func)
-        def deco_log_call(*args, **kwargs):
-            res = func(*args, **kwargs)
-            message = f'{time.asctime()} Вызван декоратор {Log.__name__} для {func.__name__}'
-            if args or kwargs:
-                message += ' с параметрами'
-            if args:
-                message += f' {args}'
-            if kwargs:
-                message += f' {kwargs}'
-            message += f' из функции {traceback.format_stack()[0].strip().split()[-1]}'
-            self.logger.info(message)
-            return res
-
-        return deco_log_call
+def log(func_to_log):
+    """Функция-декоратор"""
+    def log_saver(*args, **kwargs):
+        ret = func_to_log(*args, **kwargs)
+        LOGGER.debug(f'Была вызвана функция {func_to_log.__name__} c параметрами {args}, {kwargs}. '
+                     f'Вызов из модуля {func_to_log.__module__}.'
+                     f'Вызов из функции {traceback.format_stack()[0].strip().split()[-1]}.'
+                     f'Вызов из функции {inspect.stack()[1][3]}')
+        return ret
+    return log_saver

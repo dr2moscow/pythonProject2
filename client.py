@@ -1,9 +1,7 @@
 """
 Client
-
 Функции клиента: сформировать presence-сообщение; отправить сообщение серверу; получить ответ сервера;
 разобрать сообщение сервера;
-
 параметры командной строки скрипта client.py <addr> [<port>]: addr — ip-адрес сервера; port — tcp-порт на сервере,
 по умолчанию 7777.
 """
@@ -14,20 +12,18 @@ import socket
 import time
 import argparse
 import logging
-import decorators
 import logs.config_client_log
-from errors import ReqFieldMissingError
-from common.variables import ACTION, PRESENCE, TIME, USER, ACCOUNT_NAME, \
-    RESPONSE, DEFAULT_PORT, ERROR, DEFAULT_IP_ADDRESS, DEBUG_MESSAGE_FORMAT
+from common.variables import ACTION, TIME, USER, ACCOUNT_NAME, RESPONSE, \
+    DEFAULT_IP_ADDRESS, DEFAULT_PORT, ERROR, PRESENCE
 from common.utils import get_message, send_message
+from errors import ReqFieldMissingError
+from decorators import log
 
-# Инициализация клогера
-log = logging.getLogger('client')
-# Декоратор
-logger = decorators.Log(log)
+LOGGER = logging.getLogger('client')
 
 
 class Client:
+    @log
     def __init__(self, server_address, server_port):
         self.address = server_address
         self.port = server_port
@@ -38,23 +34,24 @@ class Client:
             message_to_server = Client.status_presence()
             send_message(self.transport, message_to_server)
             answer = Client.process_answer(get_message(self.transport))
-            log.info(f'Принят ответ от сервера {answer}')
+            LOGGER.info(f'Принят ответ от сервера {answer}')
             print(answer)
         except json.JSONDecodeError:
-            log.error(f'Не удалось декодировать полученную Json строку.')
+            LOGGER.error(f'Не удалось декодировать полученную Json строку.')
         except ConnectionRefusedError:
-            log.critical(f'Не удалось подключиться к серверу {server_address}:{server_port}, '
+            LOGGER.critical(f'Не удалось подключиться к серверу {server_address}:{server_port}, '
                          f'конечный компьютер отверг запрос на подключение.')
         except ReqFieldMissingError as missing_error:
-            log.error(f'В ответе сервера отсутствует необходимое поле {missing_error.missing_field}')
+            LOGGER.error(f'В ответе сервера отсутствует необходимое поле {missing_error.missing_field}')
         sys.exit(1)
 
-    @logger
-    def status_presence(self='Guest'):
+    @log
+    def status_presence(account_name='Guest'):
         """
         Функция генерирует запрос о присутствии клиента
+        :param account_name:
+        :return:
         """
-        account_name = self
         out = {
             ACTION: PRESENCE,
             TIME: time.time(),
@@ -62,23 +59,25 @@ class Client:
                 ACCOUNT_NAME: account_name
             }
         }
-        log.debug(f'Сформировано {PRESENCE} сообщение для пользователя {account_name}')
+        LOGGER.info(f'Генерим запрос о присуттсвии: {out}')
         return out
 
-    @logger
-    def process_answer(self):
+    @log
+    def process_answer(message):
         """
         Функция разбирает ответ сервера
+        :param message:
+        :return:
         """
-        message = self
-        log.debug(f'Разбор сообщения от сервера: {message}')
+        LOGGER.info(f'Разбор сообщения от сервера: {message}')
         if RESPONSE in message:
             if message[RESPONSE] == 200:
                 return '200 : OK'
             return f'400 : {message[ERROR]}'
-        raise ReqFieldMissingError(RESPONSE)
+        raise ValueError
 
-    @staticmethod
+
+    @log
     def create_arg_parser():
         """
         Создаём парсер аргументов коммандной строки
@@ -87,10 +86,11 @@ class Client:
         parser = argparse.ArgumentParser()
         parser.add_argument('addr', default=DEFAULT_IP_ADDRESS, nargs='?')
         parser.add_argument('port', default=DEFAULT_PORT, type=int, nargs='?')
+        LOGGER.debug(f'Создаём парсер аргументов коммандной строки: {parser}')
         return parser
 
 
-@logger
+@log
 def main():
     """
     Загружаем параметы коммандной строки
@@ -106,10 +106,8 @@ def main():
             f'Попытка запуска клиента с неподходящим номером порта: {server_port}.'
             f' Допустимы адреса с 1024 до 65535. Клиент завершается.')
         sys.exit(1)
-
-    log.info(f'Запущен клиент с парамертами: адрес сервера: {server_address} , порт: {server_port}')
-
     # Создадем клиент
+    LOGGER.info(f'Запущен клиент с парамертами: адрес сервера: {server_address}, порт: {server_port}')
     client_connect = Client(server_address, server_port)
     client_connect.message_send(Client.status_presence)
 

@@ -4,7 +4,7 @@ import sys
 import os
 import logging
 import logging.handlers
-# sys.path.append(os.path.join(os.getcwd(), '..'))
+
 sys.path.append('../')
 from common.variables import LOGGING_LEVEL
 
