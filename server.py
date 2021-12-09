@@ -47,6 +47,7 @@ class Server:
         while True:
             client, client_address = self.transport.accept()
             # LOGGER.info(f'Установлено соедение с ПК {client_address}')
+            print(f'Установлено соедение с ПК {client_address}')
             try:
                 message_from_client = get_message(client)
                 # LOGGER.debug(f'Получено сообщение {message_from_client}')

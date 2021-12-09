@@ -20,10 +20,13 @@ ACTION = 'action'
 TIME = 'time'
 USER = 'user'
 ACCOUNT_NAME = 'account_name'
+SENDER = 'sender'
 
 # Прочие ключи, используемые в протоколе
 PRESENCE = 'presence'
 RESPONSE = 'response'
 ERROR = 'error'
+MESSAGE = 'message'
+MESSAGE_TEXT = 'mess_text'
 DEBUG_MESSAGE_FORMAT = 'Вызвана функция {func.__name__} c параметрами {args}, {kwargs}. ' \
                        'Вызов из модуля {func.__module__}. Вызов из функции {inspect.stack()[1][3]}'
