@@ -46,15 +46,15 @@ class Server:
 
         while True:
             client, client_address = self.transport.accept()
-            LOGGER.info(f'Установлено соедение с ПК {client_address}')
+            # LOGGER.info(f'Установлено соедение с ПК {client_address}')
             try:
                 message_from_client = get_message(client)
-                LOGGER.debug(f'Получено сообщение {message_from_client}')
+                # LOGGER.debug(f'Получено сообщение {message_from_client}')
                 response = self.process_client_message(message_from_client)
-                LOGGER.info(f'Сформирован ответ клиенту {response}')
+                # LOGGER.info(f'Сформирован ответ клиенту {response}')
                 send_message(client, response)
-                LOGGER.debug(f'Принято корретное сообщение от клиента. {message_from_client}')
-                LOGGER.info(f'Соединение с клиентом {client_address} закрывается.')
+                # LOGGER.debug(f'Принято корретное сообщение от клиента. {message_from_client}')
+                # LOGGER.info(f'Соединение с клиентом {client_address} закрывается.')
                 client.close()
             except json.JSONDecodeError:
                 LOGGER.error(f'Не удалось декодировать Json строку, полученную от '

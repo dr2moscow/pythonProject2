@@ -1,0 +1,92 @@
+2021-12-03 10:47:15,274 DEBUG    client.py Создаём парсер аргументов коммандной строки: ArgumentParser(prog='client.py', usage=None, description=None, formatter_class=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)
+2021-12-03 10:47:15,290 DEBUG    decorators.py Была вызвана функция create_arg_parser c параметрами (), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции main
+2021-12-03 10:47:15,290 INFO     client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1, порт: 7777
+2021-12-03 10:47:17,325 CRITICAL client.py Не удалось подключиться к серверу 127.0.0.1:7777, конечный компьютер отверг запрос на подключение.
+2021-12-03 10:47:31,871 DEBUG    client.py Создаём парсер аргументов коммандной строки: ArgumentParser(prog='client.py', usage=None, description=None, formatter_class=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)
+2021-12-03 10:47:31,902 DEBUG    decorators.py Была вызвана функция create_arg_parser c параметрами (), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции main
+2021-12-03 10:47:31,902 INFO     client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1, порт: 7777
+2021-12-03 10:47:31,902 INFO     client.py Генерим запрос о присуттсвии: {'action': 'presence', 'time': 1638517651.9027717, 'user': {'account_name': 'Guest'}}
+2021-12-03 10:47:31,902 DEBUG    decorators.py Была вызвана функция status_presence c параметрами (), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции __init__
+2021-12-03 10:47:31,918 INFO     client.py Разбор сообщения от сервера: {'response': 200}
+2021-12-03 10:47:31,918 DEBUG    decorators.py Была вызвана функция process_answer c параметрами ({'response': 200},), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции __init__
+2021-12-03 10:47:31,918 INFO     client.py Принят ответ от сервера 200 : OK
+2021-12-09 20:19:17,142 DEBUG    client.py Создаём парсер аргументов коммандной строки: ArgumentParser(prog='client.py', usage=None, description=None, formatter_class=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)
+2021-12-09 20:19:17,177 DEBUG    decorators.py Была вызвана функция create_arg_parser c параметрами (), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции main
+2021-12-09 20:19:17,178 INFO     client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1, порт: 7777
+2021-12-09 20:19:17,180 INFO     client.py Генерим запрос о присуттсвии: {'action': 'presence', 'time': 1639070357.179705, 'user': {'account_name': 'Guest'}}
+2021-12-09 20:19:17,181 DEBUG    decorators.py Была вызвана функция status_presence c параметрами (), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции __init__
+2021-12-09 20:19:17,203 INFO     client.py Разбор сообщения от сервера: {'response': 200}
+2021-12-09 20:19:17,206 DEBUG    decorators.py Была вызвана функция process_answer c параметрами ({'response': 200},), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции __init__
+2021-12-09 20:19:17,206 INFO     client.py Принят ответ от сервера 200 : OK
+2021-12-09 20:19:46,108 DEBUG    client.py Создаём парсер аргументов коммандной строки: ArgumentParser(prog='client.py', usage=None, description=None, formatter_class=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)
+2021-12-09 20:19:46,142 DEBUG    decorators.py Была вызвана функция create_arg_parser c параметрами (), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции main
+2021-12-09 20:19:46,142 INFO     client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1, порт: 7777
+2021-12-09 20:19:46,144 INFO     client.py Генерим запрос о присуттсвии: {'action': 'presence', 'time': 1639070386.1441696, 'user': {'account_name': 'Guest'}}
+2021-12-09 20:19:46,145 DEBUG    decorators.py Была вызвана функция status_presence c параметрами (), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции __init__
+2021-12-09 20:19:46,148 INFO     client.py Разбор сообщения от сервера: {'response': 200}
+2021-12-09 20:19:46,151 DEBUG    decorators.py Была вызвана функция process_answer c параметрами ({'response': 200},), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции __init__
+2021-12-09 20:19:46,151 INFO     client.py Принят ответ от сервера 200 : OK
+2021-12-09 20:20:01,325 DEBUG    client.py Создаём парсер аргументов коммандной строки: ArgumentParser(prog='client.py', usage=None, description=None, formatter_class=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)
+2021-12-09 20:20:01,373 DEBUG    decorators.py Была вызвана функция create_arg_parser c параметрами (), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции main
+2021-12-09 20:20:01,373 INFO     client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1, порт: 7777
+2021-12-09 20:20:01,375 INFO     client.py Генерим запрос о присуттсвии: {'action': 'presence', 'time': 1639070401.375375, 'user': {'account_name': 'Guest'}}
+2021-12-09 20:20:01,379 DEBUG    decorators.py Была вызвана функция status_presence c параметрами (), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции __init__
+2021-12-09 20:20:01,394 INFO     client.py Разбор сообщения от сервера: {'response': 200}
+2021-12-09 20:20:01,399 DEBUG    decorators.py Была вызвана функция process_answer c параметрами ({'response': 200},), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции __init__
+2021-12-09 20:20:01,399 INFO     client.py Принят ответ от сервера 200 : OK
+2021-12-09 20:20:27,505 DEBUG    client.py Создаём парсер аргументов коммандной строки: ArgumentParser(prog='client.py', usage=None, description=None, formatter_class=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)
+2021-12-09 20:20:27,537 DEBUG    decorators.py Была вызвана функция create_arg_parser c параметрами (), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции main
+2021-12-09 20:20:27,537 INFO     client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1, порт: 7777
+2021-12-09 20:20:27,539 INFO     client.py Генерим запрос о присуттсвии: {'action': 'presence', 'time': 1639070427.5396223, 'user': {'account_name': 'Guest'}}
+2021-12-09 20:20:27,541 DEBUG    decorators.py Была вызвана функция status_presence c параметрами (), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции __init__
+2021-12-09 20:20:27,542 INFO     client.py Разбор сообщения от сервера: {'response': 200}
+2021-12-09 20:20:27,543 DEBUG    decorators.py Была вызвана функция process_answer c параметрами ({'response': 200},), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции __init__
+2021-12-09 20:20:27,544 INFO     client.py Принят ответ от сервера 200 : OK
+2021-12-09 20:20:54,691 DEBUG    client.py Создаём парсер аргументов коммандной строки: ArgumentParser(prog='client.py', usage=None, description=None, formatter_class=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)
+2021-12-09 20:20:54,722 DEBUG    decorators.py Была вызвана функция create_arg_parser c параметрами (), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции main
+2021-12-09 20:20:54,722 INFO     client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1, порт: 7777
+2021-12-09 20:20:54,723 INFO     client.py Генерим запрос о присуттсвии: {'action': 'presence', 'time': 1639070454.7235124, 'user': {'account_name': 'Guest'}}
+2021-12-09 20:20:54,726 DEBUG    decorators.py Была вызвана функция status_presence c параметрами (), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции __init__
+2021-12-09 20:20:54,727 INFO     client.py Разбор сообщения от сервера: {'response': 200}
+2021-12-09 20:20:54,729 DEBUG    decorators.py Была вызвана функция process_answer c параметрами ({'response': 200},), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции __init__
+2021-12-09 20:20:54,729 INFO     client.py Принят ответ от сервера 200 : OK
+2021-12-09 20:21:13,873 DEBUG    client.py Создаём парсер аргументов коммандной строки: ArgumentParser(prog='client.py', usage=None, description=None, formatter_class=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)
+2021-12-09 20:21:13,907 DEBUG    decorators.py Была вызвана функция create_arg_parser c параметрами (), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции main
+2021-12-09 20:21:13,907 INFO     client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1, порт: 7777
+2021-12-09 20:21:13,909 INFO     client.py Генерим запрос о присуттсвии: {'action': 'presence', 'time': 1639070473.9096787, 'user': {'account_name': 'Guest'}}
+2021-12-09 20:21:13,911 DEBUG    decorators.py Была вызвана функция status_presence c параметрами (), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции __init__
+2021-12-09 20:21:13,917 INFO     client.py Разбор сообщения от сервера: {'response': 200}
+2021-12-09 20:21:13,919 DEBUG    decorators.py Была вызвана функция process_answer c параметрами ({'response': 200},), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции __init__
+2021-12-09 20:21:13,919 INFO     client.py Принят ответ от сервера 200 : OK
+2021-12-09 20:21:25,846 DEBUG    client.py Создаём парсер аргументов коммандной строки: ArgumentParser(prog='client.py', usage=None, description=None, formatter_class=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)
+2021-12-09 20:21:25,876 DEBUG    decorators.py Была вызвана функция create_arg_parser c параметрами (), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции main
+2021-12-09 20:21:25,876 INFO     client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1, порт: 7777
+2021-12-09 20:21:25,878 INFO     client.py Генерим запрос о присуттсвии: {'action': 'presence', 'time': 1639070485.878435, 'user': {'account_name': 'Guest'}}
+2021-12-09 20:21:25,880 DEBUG    decorators.py Была вызвана функция status_presence c параметрами (), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции __init__
+2021-12-09 20:21:25,883 INFO     client.py Разбор сообщения от сервера: {'response': 200}
+2021-12-09 20:21:25,885 DEBUG    decorators.py Была вызвана функция process_answer c параметрами ({'response': 200},), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции __init__
+2021-12-09 20:21:25,885 INFO     client.py Принят ответ от сервера 200 : OK
+2021-12-09 20:21:39,008 DEBUG    client.py Создаём парсер аргументов коммандной строки: ArgumentParser(prog='client.py', usage=None, description=None, formatter_class=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)
+2021-12-09 20:21:39,040 DEBUG    decorators.py Была вызвана функция create_arg_parser c параметрами (), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции main
+2021-12-09 20:21:39,040 INFO     client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1, порт: 7777
+2021-12-09 20:21:39,042 INFO     client.py Генерим запрос о присуттсвии: {'action': 'presence', 'time': 1639070499.0421546, 'user': {'account_name': 'Guest'}}
+2021-12-09 20:21:39,044 DEBUG    decorators.py Была вызвана функция status_presence c параметрами (), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции __init__
+2021-12-09 20:21:39,045 INFO     client.py Разбор сообщения от сервера: {'response': 200}
+2021-12-09 20:21:39,047 DEBUG    decorators.py Была вызвана функция process_answer c параметрами ({'response': 200},), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции __init__
+2021-12-09 20:21:39,047 INFO     client.py Принят ответ от сервера 200 : OK
+2021-12-09 20:21:57,154 DEBUG    client.py Создаём парсер аргументов коммандной строки: ArgumentParser(prog='client.py', usage=None, description=None, formatter_class=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)
+2021-12-09 20:21:57,189 DEBUG    decorators.py Была вызвана функция create_arg_parser c параметрами (), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции main
+2021-12-09 20:21:57,190 INFO     client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1, порт: 7777
+2021-12-09 20:21:57,192 INFO     client.py Генерим запрос о присуттсвии: {'action': 'presence', 'time': 1639070517.192061, 'user': {'account_name': 'Guest'}}
+2021-12-09 20:21:57,193 DEBUG    decorators.py Была вызвана функция status_presence c параметрами (), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции __init__
+2021-12-09 20:21:57,195 INFO     client.py Разбор сообщения от сервера: {'response': 200}
+2021-12-09 20:21:57,196 DEBUG    decorators.py Была вызвана функция process_answer c параметрами ({'response': 200},), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции __init__
+2021-12-09 20:21:57,197 INFO     client.py Принят ответ от сервера 200 : OK
+2021-12-09 20:22:08,975 DEBUG    client.py Создаём парсер аргументов коммандной строки: ArgumentParser(prog='client.py', usage=None, description=None, formatter_class=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)
+2021-12-09 20:22:09,017 DEBUG    decorators.py Была вызвана функция create_arg_parser c параметрами (), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции main
+2021-12-09 20:22:09,017 INFO     client.py Запущен клиент с парамертами: адрес сервера: 127.0.0.1, порт: 7777
+2021-12-09 20:22:09,019 INFO     client.py Генерим запрос о присуттсвии: {'action': 'presence', 'time': 1639070529.0193589, 'user': {'account_name': 'Guest'}}
+2021-12-09 20:22:09,021 DEBUG    decorators.py Была вызвана функция status_presence c параметрами (), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции __init__
+2021-12-09 20:22:09,021 INFO     client.py Разбор сообщения от сервера: {'response': 200}
+2021-12-09 20:22:09,024 DEBUG    decorators.py Была вызвана функция process_answer c параметрами ({'response': 200},), {}. Вызов из модуля __main__.Вызов из функции main().Вызов из функции __init__
+2021-12-09 20:22:09,024 INFO     client.py Принят ответ от сервера 200 : OK

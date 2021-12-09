@@ -1,0 +1,1 @@
+2021-12-09 20:20:24,977 INFO     server.py Парсим командную строку : ArgumentParser(prog='server.py', usage=None, description=None, formatter_class=<class 'argparse.HelpFormatter'>, conflict_handler='error', add_help=True)
