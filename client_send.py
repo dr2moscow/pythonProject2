@@ -112,9 +112,7 @@ def arg_parser():
 
 def main():
     """Загружаем параметы коммандной строки"""
-    server_address = DEFAULT_IP_ADDRESS
-    server_port = DEFAULT_PORT
-    client_mode = "send"
+    server_address, server_port, client_mode = arg_parser()
 
     LOGGER.info(
         f'Запущен клиент с парамертами: адрес сервера: {server_address}, '
@@ -148,17 +146,16 @@ def main():
         # основной цикл прогрммы:
         if client_mode == 'send':
             print('Режим работы - отправка сообщений.')
+            while True:
+                # режим работы - отправка сообщений
+                if client_mode == 'send':
+                    try:
+                        send_message(transport, create_message(transport))
+                    except (ConnectionResetError, ConnectionError, ConnectionAbortedError):
+                        LOGGER.error(f'Соединение с сервером {server_address} было потеряно.')
+                        sys.exit(1)
         else:
             print('Режим работы - приём сообщений.')
-        while True:
-            # режим работы - отправка сообщений
-            if client_mode == 'send':
-                try:
-                    send_message(transport, create_message(transport))
-                except (ConnectionResetError, ConnectionError, ConnectionAbortedError):
-                    LOGGER.error(f'Соединение с сервером {server_address} было потеряно.')
-                    sys.exit(1)
-
             # Режим работы приём:
             if client_mode == 'listen':
                 try:

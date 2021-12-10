@@ -88,11 +88,11 @@ def arg_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument('addr', default=DEFAULT_IP_ADDRESS, nargs='?')
     parser.add_argument('port', default=DEFAULT_PORT, type=int, nargs='?')
-    # parser.add_argument('-m', '--mode', default='listen', nargs='?')
+    parser.add_argument('-m', '--mode', default='listen', nargs='?')
     namespace = parser.parse_args(sys.argv[1:])
-    server_address = DEFAULT_IP_ADDRESS
-    server_port = DEFAULT_PORT
-    client_mode = listen
+    server_address = namespace.addr
+    server_port = namespace.port
+    client_mode = namespace.mode
 
     # проверим подходящий номер порта
     if not 1023 < server_port < 65536:
@@ -112,9 +112,7 @@ def arg_parser():
 
 def main():
     """Загружаем параметы коммандной строки"""
-    server_address = DEFAULT_IP_ADDRESS
-    server_port = DEFAULT_PORT
-    client_mode = "listen"
+    server_address, server_port, client_mode = arg_parser()
 
     LOGGER.info(
         f'Запущен клиент с парамертами: адрес сервера: {server_address}, '
