@@ -71,12 +71,12 @@ def arg_parser():
 
 def main():
     """Загрузка параметров командной строки, если нет параметров, то задаём значения по умоланию"""
-    listen_address, listen_port = arg_parser()
+    # listen_address, listen_port = arg_parser()
     # listen_address = arg_parser()
     # listen_port = arg_parser()
+    listen_address = ''
+    listen_port = 8888
     print(listen_address, listen_port)
-    # listen_address = ''
-    # listen_port = 8888
 
     LOGGER.info(
         f'Запущен сервер, порт для подключений: {listen_port}, '
