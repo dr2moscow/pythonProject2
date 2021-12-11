@@ -86,6 +86,7 @@ def arg_parser():
     и читаем параметры, возвращаем 3 параметра
     """
     parser = argparse.ArgumentParser()
+    print(parser)
     parser.add_argument('addr', default=DEFAULT_IP_ADDRESS, nargs='?')
     parser.add_argument('port', default=DEFAULT_PORT, type=int, nargs='?')
     parser.add_argument('-m', '--mode', default='send', nargs='?')
@@ -94,6 +95,7 @@ def arg_parser():
     server_port = namespace.port
     client_mode = namespace.mode
 
+    print (parser)
     # проверим подходящий номер порта
     if not 1023 < server_port < 65536:
         LOGGER.critical(
@@ -112,7 +114,11 @@ def arg_parser():
 
 def main():
     """Загружаем параметы коммандной строки"""
-    server_address, server_port, client_mode = arg_parser()
+    server_address = DEFAULT_IP_ADDRESS
+    server_port = 8888
+    client_mode = 'send'
+    print(server_address, server_port, client_mode)
+    # server_address, server_port, client_mode = arg_parser()
 
     LOGGER.info(
         f'Запущен клиент с парамертами: адрес сервера: {server_address}, '
