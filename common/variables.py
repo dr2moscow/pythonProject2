@@ -1,0 +1,32 @@
+"""Константы"""
+
+import logging
+
+# Порт поумолчанию для сетевого ваимодействия
+DEFAULT_PORT = 7777
+# IP адрес по умолчанию для подключения клиента
+DEFAULT_IP_ADDRESS = '127.0.0.1'
+# Максимальная очередь подключений
+MAX_CONNECTIONS = 5
+# Максимальная длинна сообщения в байтахc
+MAX_PACKAGE_LENGTH = 1024
+# Кодировка проекта
+ENCODING = 'utf-8'
+# Текущий уровень логирования
+LOGGING_LEVEL = logging.DEBUG
+
+# Прококол JIM основные ключи:
+ACTION = 'action'
+TIME = 'time'
+USER = 'user'
+ACCOUNT_NAME = 'account_name'
+SENDER = 'sender'
+
+# Прочие ключи, используемые в протоколе
+PRESENCE = 'presence'
+RESPONSE = 'response'
+ERROR = 'error'
+MESSAGE = 'message'
+MESSAGE_TEXT = 'mess_text'
+DEBUG_MESSAGE_FORMAT = 'Вызвана функция {func.__name__} c параметрами {args}, {kwargs}. ' \
+                       'Вызов из модуля {func.__module__}. Вызов из функции {inspect.stack()[1][3]}'
